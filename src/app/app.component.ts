@@ -134,8 +134,6 @@ submitReservation(): void {
 
     error: (error) => {
 
-      console.error('Reservation API error:', error);
-
       this.reservationMessage =
         error.error?.message ||
         'Unable to submit reservation. Please try again.';

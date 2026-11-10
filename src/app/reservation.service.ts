@@ -13,7 +13,13 @@ export class ReservationService {
 
   constructor(private http: HttpClient) {}
 
-  submitReservation(payload: ReservationRequest): Observable<any> {
-    return this.http.post<any>(this.apiUrl, payload);
-  }
+  
+submitReservation(payload: ReservationRequest): Observable<string> {
+    return this.http.post(
+        this.apiUrl,
+        payload,
+        { responseType: 'text' }
+    );
+}
+
 }
