@@ -1,0 +1,324 @@
+<header class="sticky top-0 z-50 border-b border-charcoal/10 bg-ivory/95 backdrop-blur transition-shadow"
+  [class.shadow-soft]="scrolled">
+  <div class="mx-auto flex h-[76px] max-w-[1440px] items-center justify-between px-5 md:px-10 xl:px-20">
+    <a href="#home" (click)="scrollTo('home'); $event.preventDefault()" class="flex items-center gap-3">
+      <span
+        class="grid h-10 w-10 place-items-center border border-champagne font-display text-xl text-emerald-luxury">S<span
+          class="text-champagne">G</span></span>
+      <span class="font-ui text-[11px] font-extrabold tracking-[.18em] text-emerald-luxury">SPICE GARDEN<small
+          class="mt-1 block text-[8px] font-medium tracking-[.2em] text-sage">AUTHENTIC INDIAN CUISINE</small></span>
+    </a>
+    <button class="flex h-10 w-10 flex-col items-center justify-center gap-1.5 border border-charcoal/15 md:hidden"
+      (click)="mobileMenuOpen = !mobileMenuOpen" aria-label="Toggle menu"><span
+        class="h-px w-5 bg-emerald-luxury"></span><span class="h-px w-5 bg-emerald-luxury"></span></button>
+    <nav
+      class="absolute left-0 right-0 top-[76px] flex flex-col border-b border-charcoal/10 bg-ivory px-6 pb-5 md:static md:flex md:flex-row md:items-center md:gap-7 md:border-0 md:bg-transparent md:p-0"
+      [class.hidden]="!mobileMenuOpen">
+      <a *ngFor="let link of [{id:'home',label:'Home'},{id:'menu',label:'Menu'},{id:'reservation',label:'Reservations'},{id:'about',label:'About'},{id:'reviews',label:'Reviews'},{id:'contact',label:'Contact'}]"
+        [href]="'#'+link.id" (click)="scrollTo(link.id); $event.preventDefault()"
+        class="nav-link border-b border-charcoal/10 py-3 font-ui text-[11px] font-semibold text-charcoal/80 md:border-0 md:py-2">{{link.label}}</a>
+    </nav>
+    <button (click)="scrollTo('reservation')"
+      class="hidden items-center gap-4 bg-emerald-luxury px-5 py-3 font-ui text-[10px] font-bold text-ivory transition hover:bg-charcoal md:flex">Book
+      a table <span class="text-champagne">↗</span></button>
+  </div>
+</header>
+
+<main>
+  <section id="home"
+    class="section-anchor mx-auto grid max-w-[1440px] items-center gap-12 px-5 py-16 md:grid-cols-[.9fr_1.1fr] md:px-10 md:py-24 xl:px-20">
+    <div class="animate-fade-up">
+      <p class="mb-6 flex items-center gap-3 font-ui text-[9px] font-extrabold tracking-[.19em] text-sage"><span
+          class="h-px w-7 bg-champagne"></span> AN EXPERIENCE OF AUTHENTIC INDIAN CUISINE</p>
+      <h1 class="font-display text-[clamp(3.5rem,7vw,6rem)] leading-[1.02] tracking-[-.045em] text-emerald-luxury">Where
+        every<br>flavour tells<br><em class="font-medium text-sage">a story.</em></h1>
+      <p class="mt-7 max-w-[440px] text-[13px] leading-8 text-charcoal/65">Experience the richness of authentic Indian
+        cuisine, thoughtfully prepared with fresh ingredients, traditional recipes, and a passion for exceptional
+        hospitality.</p>
+      <div class="mt-8 flex flex-wrap items-center gap-7">
+        <button (click)="scrollTo('menu')"
+          class="inline-flex min-h-13 items-center gap-7 bg-emerald-luxury px-6 py-4 font-ui text-[11px] font-bold text-ivory transition hover:-translate-y-1 hover:bg-charcoal">Explore
+          our menu <span class="text-champagne">↗</span></button>
+        <button (click)="scrollTo('reservation')" class="font-ui text-[11px] font-bold text-emerald-luxury">Reserve a
+          table <span class="ml-2 text-lg text-champagne">→</span></button>
+      </div>
+      <p class="mt-16 flex items-center gap-3 font-ui text-[8px] font-bold tracking-[.15em] text-charcoal/45"><span
+          class="h-px w-10 bg-champagne"></span> GOOD FOOD. GOOD COMPANY. GREAT MEMORIES.</p>
+    </div>
+    <div class="food-photo relative animate-image-reveal pb-7 pr-4 md:pl-2">
+      <div class="h-[390px] overflow-hidden md:h-[540px]"><img class="h-full w-full object-cover"
+          src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=1400&q=90"
+          alt="An elegant Indian meal" fetchpriority="high"></div>
+      <div class="pointer-events-none absolute inset-x-4 bottom-3 top-3 border border-champagne md:left-6"></div>
+      <div
+        class="absolute -left-5 bottom-20 grid h-[78px] w-[78px] -rotate-12 place-items-center rounded-full border border-champagne bg-emerald-luxury text-center text-champagne">
+        <span class="font-display text-2xl">SG<small class="block font-ui text-[6px] tracking-[.2em]">WITH
+            LOVE</small></span></div>
+      <div class="mt-4 flex justify-between font-ui text-[8px] font-bold tracking-[.13em] text-charcoal/45"><span>01 /
+          THE SPICE GARDEN EXPERIENCE</span><span
+          class="font-display text-sm italic tracking-normal text-emerald-luxury">Crafted with care</span></div>
+    </div>
+  </section>
+
+  <section id="menu" class="section-anchor bg-beige/70 px-5 py-20 md:px-10 md:py-28 xl:px-20">
+    <div class="reveal mx-auto mb-12 max-w-2xl text-center">
+      <p class="mb-4 font-ui text-[9px] font-extrabold tracking-[.2em] text-sage">OUR SIGNATURE COLLECTION</p>
+      <h2 class="font-display text-4xl text-emerald-luxury md:text-6xl">A taste worth <em
+          class="text-sage">remembering.</em></h2>
+      <p class="mx-auto mt-5 max-w-xl text-xs leading-7 text-charcoal/60">Discover carefully prepared dishes that bring
+        together authentic flavours, fresh ingredients, and culinary tradition.</p>
+    </div>
+    <div class="mx-auto mb-8 flex max-w-6xl flex-col gap-5">
+      <div class="flex gap-2 overflow-x-auto pb-2" role="group" aria-label="Filter menu categories"><button
+          *ngFor="let category of categories" (click)="selectCategory(category)"
+          [class.bg-emerald-luxury]="activeCategory === category" [class.text-ivory]="activeCategory === category"
+          [class.border-emerald-luxury]="activeCategory === category"
+          class="shrink-0 border border-charcoal/15 px-4 py-2.5 font-ui text-[9px] font-semibold text-charcoal/65 transition hover:border-emerald-luxury hover:bg-emerald-luxury hover:text-ivory">{{category}}</button>
+      </div>
+      <p class="text-right font-ui text-[8px] font-bold tracking-[.15em] text-charcoal/40">CURATED WITH CARE ·
+        {{filteredItems.length}} DISHES</p>
+    </div>
+    <div class="mx-auto grid max-w-6xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <article *ngFor="let item of filteredItems"
+        class="reveal group overflow-hidden border border-charcoal/10 bg-ivory transition duration-300 hover:-translate-y-1 hover:shadow-soft">
+        <div class="food-photo relative h-56 overflow-hidden bg-beige"><img [src]="item.image" [alt]="item.name"
+            loading="lazy" class="h-full w-full object-cover"><span *ngIf="item.badge"
+            class="absolute left-3 top-3 bg-champagne px-3 py-2 font-ui text-[8px] font-extrabold text-emerald-luxury">{{item.badge}}</span><span
+            class="absolute right-3 top-3 grid h-4 w-4 place-items-center border bg-ivory"
+            [class.border-green-700]="item.vegetarian" [class.border-red-700]="!item.vegetarian"><span
+              class="h-1.5 w-1.5 rounded-full" [class.bg-green-700]="item.vegetarian"
+              [class.bg-red-700]="!item.vegetarian"></span></span></div>
+        <div class="p-5">
+          <div class="flex items-baseline justify-between gap-3">
+            <h3 class="font-ui text-sm font-bold text-emerald-luxury">{{item.name}}</h3><span
+              class="whitespace-nowrap text-sm font-bold text-emerald-luxury">₹{{item.price}}</span>
+          </div>
+          <p class="mt-3 min-h-10 text-[10px] leading-6 text-charcoal/60">{{item.description}}</p><span
+            class="mt-3 inline-block font-ui text-[8px] font-extrabold uppercase tracking-[.15em] text-sage">{{item.category}}</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="reservation"
+    class="section-anchor mx-auto grid max-w-[1440px] items-center gap-12 px-5 py-20 md:grid-cols-[.9fr_1.1fr] md:px-10 md:py-28 xl:gap-28 xl:px-20">
+    <div class="reveal relative ml-3 h-[430px] md:h-[600px]"><img class="h-full w-full object-cover"
+        src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=90"
+        alt="Warm restaurant dining room" loading="lazy">
+      <div class="absolute -bottom-5 -left-3 bg-emerald-luxury px-7 py-6 text-ivory md:-left-6">
+        <p class="mb-3 font-ui text-[8px] font-bold tracking-[.17em] text-champagne">AN INVITATION TO SLOW DOWN</p>
+        <p class="font-display text-2xl leading-tight">Make room for<br>something lovely.</p>
+      </div>
+    </div>
+    <div class="reveal">
+      <p class="mb-4 font-ui text-[9px] font-extrabold tracking-[.2em] text-sage">A PLACE AT OUR TABLE</p>
+      <h2 class="font-display text-5xl text-emerald-luxury md:text-6xl">Your table <em class="text-sage">awaits.</em>
+      </h2>
+      <p class="mb-8 mt-4 max-w-lg text-xs leading-7 text-charcoal/60">Make your dining experience special. Share a few
+        details and our team will help arrange your visit.</p>
+      <form [formGroup]="reservationForm" (ngSubmit)="submitReservation()" class="grid grid-cols-1 gap-4 sm:grid-cols-2"
+        novalidate>
+        <label class="font-ui text-[9px] font-bold text-charcoal/75">Full name<input formControlName="fullName"
+            placeholder="Your name"
+            class="mt-2 w-full border border-charcoal/15 bg-white/40 px-3 py-3 font-body text-[11px]"><small
+            *ngIf="reservationForm.controls.fullName.touched && reservationForm.controls.fullName.invalid"
+            class="mt-1 block text-terra">Enter your name.</small></label>
+        <label class="font-ui text-[9px] font-bold text-charcoal/75">Email address<input type="email"
+            formControlName="email" placeholder="you@example.com"
+            class="mt-2 w-full border border-charcoal/15 bg-white/40 px-3 py-3 font-body text-[11px]"><small
+            *ngIf="reservationForm.controls.email.touched && reservationForm.controls.email.invalid"
+            class="mt-1 block text-terra">Enter a valid email.</small></label>
+        <label class="font-ui text-[9px] font-bold text-charcoal/75">Phone number<input type="tel"
+            formControlName="phone" placeholder="+91 00000 00000"
+            class="mt-2 w-full border border-charcoal/15 bg-white/40 px-3 py-3 font-body text-[11px]"><small
+            *ngIf="reservationForm.controls.phone.touched && reservationForm.controls.phone.invalid"
+            class="mt-1 block text-terra">Enter a valid phone.</small></label>
+        <label class="font-ui text-[9px] font-bold text-charcoal/75">Reservation date<input type="date" [min]="today"
+            formControlName="date"
+            class="mt-2 w-full border border-charcoal/15 bg-white/40 px-3 py-3 font-body text-[11px]"></label>
+        <label class="font-ui text-[9px] font-bold text-charcoal/75">Preferred time<select formControlName="time"
+            class="mt-2 w-full border border-charcoal/15 bg-white/40 px-3 py-3 font-body text-[11px]">
+            <option value="">Select a time</option>
+            <option>12:00 PM</option>
+            <option>01:00 PM</option>
+            <option>02:00 PM</option>
+            <option>07:00 PM</option>
+            <option>08:00 PM</option>
+            <option>09:00 PM</option>
+          </select></label>
+        <label class="font-ui text-[9px] font-bold text-charcoal/75">Number of guests<select formControlName="guests"
+            class="mt-2 w-full border border-charcoal/15 bg-white/40 px-3 py-3 font-body text-[11px]">
+            <option [ngValue]="1">1 guest</option>
+            <option [ngValue]="2">2 guests</option>
+            <option [ngValue]="3">3 guests</option>
+            <option [ngValue]="4">4 guests</option>
+            <option [ngValue]="5">5 guests</option>
+            <option [ngValue]="6">6 guests</option>
+            <option [ngValue]="8">8 guests</option>
+            <option [ngValue]="10">10 guests</option>
+          </select></label>
+        <label class="font-ui text-[9px] font-bold text-charcoal/75 sm:col-span-2">Special requests<textarea
+            formControlName="specialRequest" rows="2" placeholder="Anything we should know?"
+            class="mt-2 w-full border border-charcoal/15 bg-white/40 px-3 py-3 font-body text-[11px]"></textarea></label>
+        <div class="sm:col-span-2"><button type="submit"
+            class="inline-flex items-center gap-7 bg-emerald-luxury px-6 py-4 font-ui text-[10px] font-bold text-ivory transition hover:bg-charcoal">Request
+            a reservation <span class="text-champagne">↗</span></button>
+          <p *ngIf="reservationMessage" aria-live="polite"
+            class="mt-3 border-l-2 border-sage bg-sage/10 p-3 text-[10px] leading-5 text-emerald-luxury">
+            {{reservationMessage}}</p>
+          <p class="mt-3 text-[9px] leading-5 text-charcoal/45">Frontend preview only. No booking is saved or confirmed
+            until the Spring Boot API is connected.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section id="reviews" class="section-anchor bg-[#E9E5DA] px-5 py-20 md:px-10 md:py-28 xl:px-20">
+    <div class="reveal mx-auto mb-12 max-w-2xl text-center">
+      <p class="mb-4 font-ui text-[9px] font-extrabold tracking-[.2em] text-sage">GUEST EXPERIENCES</p>
+      <h2 class="font-display text-4xl text-emerald-luxury md:text-6xl">Stories from <em class="text-sage">our
+          guests.</em></h2>
+      <p class="mt-4 text-xs text-charcoal/60">Every shared meal becomes part of our story.</p>
+    </div>
+    <div class="mx-auto grid max-w-6xl gap-5 md:grid-cols-3">
+      <article class="reveal bg-ivory p-7">
+        <p class="tracking-[.2em] text-champagne">★★★★★</p>
+        <blockquote class="my-6 font-display text-lg leading-7 text-charcoal">“The kind of place where the food feels
+          familiar, yet every bite has a little surprise.”</blockquote>
+        <p class="font-ui text-[10px] font-bold text-emerald-luxury">Sample guest</p>
+        <p class="mt-1 text-[8px] text-charcoal/45">Illustrative testimonial</p>
+      </article>
+      <article class="reveal bg-emerald-luxury p-7 text-ivory">
+        <p class="tracking-[.2em] text-champagne">★★★★★</p>
+        <blockquote class="my-6 font-display text-lg leading-7">“Beautifully balanced flavours, thoughtful service and a
+          relaxed atmosphere.”</blockquote>
+        <p class="font-ui text-[10px] font-bold">Sample guest</p>
+        <p class="mt-1 text-[8px] text-ivory/60">Illustrative testimonial</p>
+      </article>
+      <article class="reveal bg-ivory p-7">
+        <p class="tracking-[.2em] text-champagne">★★★★★</p>
+        <blockquote class="my-6 font-display text-lg leading-7 text-charcoal">“A comforting meal and a warm welcome. A
+          wonderful spot to share good food.”</blockquote>
+        <p class="font-ui text-[10px] font-bold text-emerald-luxury">Sample guest</p>
+        <p class="mt-1 text-[8px] text-charcoal/45">Illustrative testimonial</p>
+      </article>
+    </div>
+    <p class="mt-7 text-center text-[9px] text-charcoal/45">Placeholder examples only — replace with verified customer
+      reviews.</p>
+  </section>
+
+  <section id="about"
+    class="section-anchor mx-auto grid max-w-[1440px] items-center gap-12 px-5 py-20 md:grid-cols-2 md:px-10 md:py-28 xl:gap-28 xl:px-20">
+    <div class="reveal relative h-[390px] md:h-[530px]"><img
+        src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=85"
+        alt="Fresh ingredients prepared for cooking" loading="lazy" class="h-full w-full object-cover"><span
+        class="absolute bottom-0 left-0 bg-champagne px-4 py-3 font-ui text-[8px] font-extrabold tracking-[.14em] text-emerald-luxury">ROOTED
+        IN TRADITION · MADE FOR TODAY</span></div>
+    <div class="reveal">
+      <p class="mb-4 font-ui text-[9px] font-extrabold tracking-[.2em] text-sage">THE HEART OF SPICE GARDEN</p>
+      <h2 class="font-display text-5xl leading-tight text-emerald-luxury md:text-6xl">More than just<br>a dining <em
+          class="text-sage">experience.</em></h2>
+      <p class="mt-7 text-xs leading-8 text-charcoal/65">At Spice Garden, we believe a memorable meal begins long before
+        it reaches the table. It starts with ingredients chosen with care, recipes shaped by tradition, and the joy of
+        bringing people together.</p>
+      <p class="mt-4 text-xs leading-8 text-charcoal/65">Our approach celebrates the depth and diversity of Indian
+        cuisine. Familiar spices, patient cooking and genuine hospitality come together to make every visit feel
+        welcoming.</p>
+      <div class="mt-8 border-y border-charcoal/15">
+        <div class="flex items-center gap-5 border-b border-charcoal/10 py-4"><span
+            class="font-ui text-[9px] font-bold text-champagne">01</span><strong
+            class="font-ui text-[10px] text-emerald-luxury">Fresh ingredients</strong></div>
+        <div class="flex items-center gap-5 border-b border-charcoal/10 py-4"><span
+            class="font-ui text-[9px] font-bold text-champagne">02</span><strong
+            class="font-ui text-[10px] text-emerald-luxury">Authentic flavours</strong></div>
+        <div class="flex items-center gap-5 py-4"><span
+            class="font-ui text-[9px] font-bold text-champagne">03</span><strong
+            class="font-ui text-[10px] text-emerald-luxury">Warm hospitality</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section-anchor bg-emerald-luxury px-5 py-20 text-ivory md:px-10 md:py-28 xl:px-20">
+    <div class="reveal mx-auto mb-12 max-w-6xl">
+      <p class="mb-4 font-ui text-[9px] font-extrabold tracking-[.2em] text-champagne">COME BY, SAY HELLO</p>
+      <h2 class="font-display text-5xl md:text-6xl">We’d love to <em class="text-pale">welcome you.</em></h2>
+      <p class="mt-5 max-w-lg text-xs leading-7 text-ivory/70">Questions, plans or a special occasion in mind? We would
+        be delighted to hear from you.</p>
+    </div>
+    <div class="mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
+      <div class="reveal grid grid-cols-2 gap-8">
+        <div>
+          <p class="mb-3 font-ui text-[8px] font-extrabold tracking-[.17em] text-champagne">VISIT US</p>
+          <p class="text-xs leading-6">[Restaurant address to be added]</p>
+        </div>
+        <div>
+          <p class="mb-3 font-ui text-[8px] font-extrabold tracking-[.17em] text-champagne">CALL US</p>
+          <p class="text-xs leading-6">[Restaurant phone number]</p>
+        </div>
+        <div>
+          <p class="mb-3 font-ui text-[8px] font-extrabold tracking-[.17em] text-champagne">WRITE TO US</p>
+          <p class="break-all text-xs leading-6">[Restaurant email address]</p>
+        </div>
+        <div>
+          <p class="mb-3 font-ui text-[8px] font-extrabold tracking-[.17em] text-champagne">OPENING HOURS</p>
+          <p class="text-xs leading-6">[Add confirmed opening hours]</p>
+        </div>
+        <div class="col-span-2 border border-champagne/30 bg-white/5 p-5">
+          <p class="font-ui text-[8px] font-extrabold tracking-[.17em] text-champagne">LOCATION</p>
+          <p class="mt-3 text-[10px] leading-6 text-ivory/70">Add the Google Maps embed after confirming the restaurant
+            address.</p>
+        </div>
+      </div>
+      <form [formGroup]="contactForm" (ngSubmit)="submitContact()" class="reveal bg-ivory p-7 text-charcoal">
+        <h3 class="mb-6 font-display text-3xl text-emerald-luxury">Send us a note</h3><label
+          class="mb-4 block font-ui text-[9px] font-bold">Your name<input formControlName="name" placeholder="Your name"
+            class="mt-2 w-full border border-charcoal/15 bg-white/40 px-3 py-3 font-body text-[11px]"></label><label
+          class="mb-4 block font-ui text-[9px] font-bold">Email address<input formControlName="email" type="email"
+            placeholder="you@example.com"
+            class="mt-2 w-full border border-charcoal/15 bg-white/40 px-3 py-3 font-body text-[11px]"></label><label
+          class="mb-5 block font-ui text-[9px] font-bold">Your message<textarea formControlName="message" rows="4"
+            placeholder="How can we help?"
+            class="mt-2 w-full border border-charcoal/15 bg-white/40 px-3 py-3 font-body text-[11px]"></textarea></label><button
+          class="bg-emerald-luxury px-6 py-4 font-ui text-[10px] font-bold text-ivory transition hover:bg-charcoal"
+          type="submit">Prepare message <span class="ml-5 text-champagne">↗</span></button>
+        <p *ngIf="contactMessage" aria-live="polite" class="mt-4 text-[10px] leading-5 text-emerald-luxury">
+          {{contactMessage}}</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-[#0D3025] px-5 pt-14 text-ivory md:px-10 xl:px-20">
+  <div class="mx-auto grid max-w-6xl gap-10 border-b border-ivory/15 pb-12 sm:grid-cols-2 lg:grid-cols-4">
+    <div><a href="#home" (click)="scrollTo('home'); $event.preventDefault()" class="flex items-center gap-3"><span
+          class="grid h-10 w-10 place-items-center border border-champagne font-display text-xl">S<span
+            class="text-champagne">G</span></span><span
+          class="font-ui text-[11px] font-extrabold tracking-[.18em]">SPICE GARDEN<small
+            class="mt-1 block text-[8px] font-medium tracking-[.2em] text-pale">AUTHENTIC INDIAN
+            CUISINE</small></span></a>
+      <p class="mt-5 max-w-xs text-[10px] leading-7 text-ivory/65">Thoughtful Indian cuisine, genuine hospitality and
+        good moments shared around the table.</p>
+    </div>
+    <div>
+      <p class="mb-5 font-ui text-[8px] font-extrabold tracking-[.17em] text-champagne">EXPLORE</p><a
+        *ngFor="let item of [{id:'menu',name:'Our menu'},{id:'reservation',name:'Reservations'},{id:'about',name:'Our story'}]"
+        [href]="'#'+item.id" (click)="scrollTo(item.id); $event.preventDefault()"
+        class="mb-3 block text-[10px] text-ivory/70 hover:text-champagne">{{item.name}}</a>
+    </div>
+    <div>
+      <p class="mb-5 font-ui text-[8px] font-extrabold tracking-[.17em] text-champagne">GET IN TOUCH</p>
+      <p class="mb-3 text-[10px] text-ivory/70">[Restaurant phone]</p>
+      <p class="mb-3 text-[10px] text-ivory/70">[Restaurant email]</p>
+      <p class="text-[10px] text-ivory/70">[Restaurant address]</p>
+    </div>
+    <div>
+      <p class="mb-5 font-ui text-[8px] font-extrabold tracking-[.17em] text-champagne">FOLLOW ALONG</p>
+      <p class="mb-3 text-[10px] text-ivory/70">Instagram ↗</p>
+      <p class="text-[10px] text-ivory/70">Facebook ↗</p>
+    </div>
+  </div>
+  <div
+    class="mx-auto flex max-w-6xl flex-wrap justify-between gap-4 py-5 font-ui text-[8px] font-bold tracking-[.08em] text-ivory/50">
+    <span>© 2026 Spice Garden. All rights reserved.</span><span>MADE WITH CARE & A LITTLE SPICE.</span><button
+      (click)="scrollTo('home')" class="text-champagne">BACK TO TOP ↑</button></div>
+</footer>
