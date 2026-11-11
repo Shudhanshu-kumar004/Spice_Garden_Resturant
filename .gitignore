@@ -1,0 +1,14 @@
+
+# Dependencies
+node_modules/
+
+# Angular generated files
+dist/
+.angular/
+
+# Environment files (if they contain secrets)
+.env
+.env.*
+
+# Logs
+npm-debug.log*
